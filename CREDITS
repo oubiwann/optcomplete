@@ -1,0 +1,15 @@
+Martin Blais
+  Main author, I wrote the software [2004].
+
+Chris Lesniewski-Laas
+  Submitted zsh support [2007-11].
+
+Justin Riley -- justin.t.riley at gmail dot com
+  Submitted fixes, improvements and zsh support fixes.
+
+Timo Ewalds -- timo at spotify dot com
+  Improved file completion via use of standard bash functions instead
+  of my Python-based completer. This also allows evaluation of values
+  suggested by optcomplete.
+
+
