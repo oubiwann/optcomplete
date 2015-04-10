@@ -414,7 +414,7 @@ def autocomplete(parser,
     if isinstance(completions, str):
         # is a bash command, just run it
         if shell() in ("bash"): #TODO: zsh
-            print completions
+            print(completions)
         else:
             raise Exception("Commands are unsupported by this shell")
     else:
@@ -425,30 +425,9 @@ def autocomplete(parser,
         completions = ' '.join(completions)
         # Save results
         if shell() == "bash":
-            print 'COMPREPLY=(' + completions + ')'
-#        elif shell() == "zsh":
-#            #TODO: modify the zsh completer script to eval the result
-#            print 'reply=(' + completions + ')'
+            print('COMPREPLY=(' + completions + ')')
         else:
-            print completions
-
-    # Print debug output (if needed).  You can keep a shell with 'tail -f' to
-    # the log file to monitor what is happening.
-    if debugfn:
-        from pprint import pformat
-        f = open(debugfn, 'a')
-        print >> f, '---------------------------------------------------------'
-        print >> f, 'CWORDS', cwords
-        print >> f, 'CLINE', cline
-        print >> f, 'CPOINT', cpoint
-        print >> f, 'CWORD', cword
-        print >> f, '\nShort options'
-        print >> f, pformat(parser._short_opt)
-        print >> f, '\nLong options'
-        print >> f, pformat(parser._long_opt)
-        print >> f, 'Prefix/Suffix:', prefix, suffix
-        print >> f, 'completions', completions
-        f.close()
+            print(completions)
 
     # Exit with error code (we do not let the caller continue on purpose, this
     # is a run for completions only.)
@@ -522,15 +501,15 @@ class CmdComplete:
 
 
 def test():
-    print extract_word("extraire un mot d'une phrase", 11)
-    print extract_word("extraire un mot d'une phrase", 12)
-    print extract_word("extraire un mot d'une phrase", 13)
-    print extract_word("extraire un mot d'une phrase", 14)
-    print extract_word("extraire un mot d'une phrase", 0)
-    print extract_word("extraire un mot d'une phrase", 28)
-    print extract_word("extraire un mot d'une phrase", 29)
-    print extract_word("extraire un mot d'une phrase", -2)
-    print extract_word("optcomplete-test do", 19)
+    print(extract_word("extraire un mot d'une phrase", 11))
+    print(extract_word("extraire un mot d'une phrase", 12))
+    print(extract_word("extraire un mot d'une phrase", 13))
+    print(extract_word("extraire un mot d'une phrase", 14))
+    print(extract_word("extraire un mot d'une phrase", 0))
+    print(extract_word("extraire un mot d'une phrase", 28))
+    print(extract_word("extraire un mot d'une phrase", 29))
+    print(extract_word("extraire un mot d'une phrase", -2))
+    print(extract_word("optcomplete-test do", 19))
 
 if __name__ == '__main__':
     test()
